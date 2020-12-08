@@ -68,7 +68,7 @@ public class SphereController : MonoBehaviour
             {
                 Debug.Log("Too much damage.Game Over!");
                 gameManager.GameOver();
-
+                gameObject.SetActive(false);
             }
         }
 
