@@ -5,24 +5,23 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     public GameObject enemyPrefab;
-    public GameObject[] objectPrefabs;
+    public GameObject[] powerUpPrefabs;
+    public GameObject[] pickPointsPrefabs;
     public GameObject[] obstaclePrefabs;
     public float obstacleCheckRadius = 6.0f;
     public int maxSpawnAttemptsPerObstacle = 10;
+    private GameManager gameManager;
     private float spawnRangeX = 45.0f;
     private float spawnRangeZ = 45.0f;
-    private float spawnDelay = 1.0f;
-    private float spawnInterval = 1.5f;
-    private SphereController sphereControllerScript;
     // Start is called before the first frame update
     void Start()
     {
-        Instantiate(enemyPrefab, GenerateEnemySpawnPosition(), enemyPrefab.transform.rotation);
 
-        InvokeRepeating("SpawnObjects", spawnDelay, spawnInterval);
-        sphereControllerScript = GameObject.Find("Player").GetComponent<SphereController>();
         ObstacleSpawnRandom();
-
+        Instantiate(enemyPrefab, GenerateEnemySpawnPosition(), enemyPrefab.transform.rotation);
+        InvokeRepeating("SpawnRandomPowerUps", 2, 15);
+        InvokeRepeating("SpawnRandomPickUpPoints", 2, 1.5f);
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -30,14 +29,22 @@ public class SpawnManager : MonoBehaviour
     {
 
     }
-    void SpawnObjects()
+    void SpawnRandomPowerUps()
     {
-        Vector3 spawnLocation = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 0.7f, Random.Range(-spawnRangeZ, spawnRangeZ));
-        int objectIndex = Random.Range(0, objectPrefabs.Length);
-
-        if (!sphereControllerScript.gameOver)
+        if (gameManager.isGameActive)
         {
-            Instantiate(objectPrefabs[objectIndex], spawnLocation, objectPrefabs[objectIndex].transform.rotation);
+            int powerUpIndex = Random.Range(0, powerUpPrefabs.Length);
+            Vector3 spawnPosition = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 0.80f, Random.Range(-spawnRangeZ, spawnRangeZ));
+            Instantiate(powerUpPrefabs[powerUpIndex], spawnPosition, powerUpPrefabs[powerUpIndex].transform.rotation);
+        }
+    }
+    void SpawnRandomPickUpPoints()
+    {
+        if (gameManager.isGameActive)
+        {
+            int pickUpPointsIndex = Random.Range(0, pickPointsPrefabs.Length);
+            Vector3 spawnPosition = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 0.80f, Random.Range(-spawnRangeZ, spawnRangeZ));
+            Instantiate(pickPointsPrefabs[pickUpPointsIndex], spawnPosition, pickPointsPrefabs[pickUpPointsIndex].transform.rotation);
         }
     }
     private Vector3 GenerateEnemySpawnPosition()
@@ -45,7 +52,7 @@ public class SpawnManager : MonoBehaviour
         float enemySpawnPosX = Random.Range(-spawnRangeX, spawnRangeX);
         float enemySpawnPosZ = Random.Range(-spawnRangeZ, spawnRangeZ);
 
-        Vector3 randomPosition = new Vector3(enemySpawnPosX, 0, enemySpawnPosZ);
+        Vector3 randomPosition = new Vector3(enemySpawnPosX, 7, enemySpawnPosZ);
 
         return randomPosition;
     }

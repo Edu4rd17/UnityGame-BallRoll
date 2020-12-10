@@ -10,6 +10,11 @@ TagManager:
   - Enemy
   - Game Manager
   - StarPoints
+  - Health
+  - BadPoints
+  - DollarPoints
+  - FirePoints
+  - HealthPickUp
   layers:
   - Default
   - TransparentFX

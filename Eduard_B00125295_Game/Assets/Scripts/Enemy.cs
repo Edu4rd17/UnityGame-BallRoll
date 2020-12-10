@@ -7,11 +7,13 @@ public class Enemy : MonoBehaviour
     public float speed;
     private Rigidbody enemyRb;
     private GameObject player;
+    private GameManager gameManager;
     // Start is called before the first frame update
     void Start()
     {
         enemyRb = GetComponent<Rigidbody>();
         player = GameObject.Find("Player");
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -26,7 +28,10 @@ public class Enemy : MonoBehaviour
     }
     void EnemyPlayerFollow()
     {
-        Vector3 enemyMoveDirection = (player.transform.position - transform.position).normalized;
-        enemyRb.AddForce(enemyMoveDirection * speed);
+        if (gameManager.isGameActive)
+        {
+            Vector3 enemyMoveDirection = (player.transform.position - transform.position).normalized;
+            enemyRb.AddForce(enemyMoveDirection * speed);
+        }
     }
 }
