@@ -480,6 +480,8 @@ MonoBehaviour:
   scoreText: {fileID: 41085758}
   gameOverText: {fileID: 998742133}
   winText: {fileID: 1852793100}
+  trophyPrefab: {fileID: 77384854192069565, guid: 7baae797bb0b6a444a1ccac49da5d47d,
+    type: 3}
   restartButton: {fileID: 1294363940}
   isGameActive: 0
 --- !u!4 &155938392

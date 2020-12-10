@@ -480,6 +480,8 @@ MonoBehaviour:
   scoreText: {fileID: 41085758}
   gameOverText: {fileID: 998742133}
   winText: {fileID: 1852793100}
+  trophyPrefab: {fileID: 77384854192069565, guid: 7baae797bb0b6a444a1ccac49da5d47d,
+    type: 3}
   restartButton: {fileID: 1294363940}
   isGameActive: 0
 --- !u!4 &155938392
@@ -947,7 +949,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 606910ec401804eb09925f0d57909c04, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 834bc99524a174a378e982623582c06d, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.746
   m_Pitch: 1
@@ -2127,7 +2129,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ac6ec77da92f0134ca1865274cda06f7, type: 2}
+  - {fileID: 2100000, guid: 42b224efc5a8c4863a87e224a72bb1ea, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

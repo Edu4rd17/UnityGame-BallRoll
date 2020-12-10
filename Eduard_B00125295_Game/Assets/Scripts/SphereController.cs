@@ -153,7 +153,7 @@ public class SphereController : MonoBehaviour
                 pickUpBad = true;
                 playerAudio.PlayOneShot(evil, 1.0f);
                 Destroy(other.gameObject);
-                gameManager.UpdateScore(-15);
+                gameManager.UpdateScore(-10);
             }
 
         }

@@ -15,6 +15,7 @@ TagManager:
   - DollarPoints
   - FirePoints
   - HealthPickUp
+  - TrophyNextLevel
   layers:
   - Default
   - TransparentFX

@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     private int score;
     public TextMeshProUGUI gameOverText;
     public TextMeshProUGUI winText;
+    public GameObject trophyPrefab;
     public Button restartButton;
     public bool isGameActive;
     // Start is called before the first frame update
@@ -42,7 +43,17 @@ public class GameManager : MonoBehaviour
         if (score >= 100)
         {
             winText.gameObject.SetActive(true);
+            Instantiate(trophyPrefab, GenerateTrophyRandom(), trophyPrefab.transform.rotation);
         }
+    }
+    public Vector3 GenerateTrophyRandom()
+    {
+        float trophySpawnPosX = Random.Range(-45, 45);
+        float trophySpawnPosZ = Random.Range(-45, 45);
+
+        Vector3 randomLocation = new Vector3(trophySpawnPosX, 0, trophySpawnPosZ);
+
+        return randomLocation;
     }
     public void RestartGame()
     {

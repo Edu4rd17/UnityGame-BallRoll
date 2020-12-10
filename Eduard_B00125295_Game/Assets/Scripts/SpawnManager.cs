@@ -56,6 +56,7 @@ public class SpawnManager : MonoBehaviour
 
         return randomPosition;
     }
+
     void ObstacleSpawnRandom()
     {
         for (int i = 0; i <= 30; i++)
