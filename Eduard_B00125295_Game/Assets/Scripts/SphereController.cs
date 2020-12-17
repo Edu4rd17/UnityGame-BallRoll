@@ -35,10 +35,12 @@ public class SphereController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //sphere control method has been called
         SphereControll();
 
+        //the powerup indicator will follow the spheres' position when it will have the powerup
         GempowerUpIndicator.transform.position = transform.position + new Vector3(0, -0.5f, 0);
-        //if the sphere goes over the -10 on the y it will dissapear
+        //if the sphere goes over the -10 on the y it will be set as inactve
         if (transform.position.y < -10)
         {
             gameObject.SetActive(false);
@@ -73,8 +75,10 @@ public class SphereController : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
+        //only if the game is still active do the rest
         if (gameManager.isGameActive)
         {
+            //a lot if statements for conditions so that if y then x do...
             if (collision.gameObject.CompareTag("Ground"))
             {
                 isOnGround = true;
@@ -84,6 +88,7 @@ public class SphereController : MonoBehaviour
                 playerAudio.PlayOneShot(crashObject, 1.0f);
                 gameOver = true;
                 playerHealth = playerHealth - 20.0f;
+                //if the player health is smaller or equal to 0 then game over
                 if (playerHealth <= 0)
                 {
 

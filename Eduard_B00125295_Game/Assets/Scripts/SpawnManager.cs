@@ -22,6 +22,7 @@ public class SpawnManager : MonoBehaviour
         SpawnEnemyWave(1);
         InvokeRepeating("SpawnRandomPowerUps", 2, 15);
         InvokeRepeating("SpawnRandomPickUpPoints", 2, 1.5f);
+        //making reference to the game manager objects
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
     }
 

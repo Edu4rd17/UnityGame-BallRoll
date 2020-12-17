@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         EnemyPlayerFollow();
+        //if the position of the enemy game object is smaller than -10 destroy the enemy game object
         if(transform.position.y < -10)
         {
             Destroy(gameObject);
@@ -29,6 +30,7 @@ public class Enemy : MonoBehaviour
     {
         if (gameManager.isGameActive)
         {
+            //the enemy follows the player
             Vector3 enemyMoveDirection = (player.transform.position - transform.position).normalized;
             enemyRb.AddForce(enemyMoveDirection * speed);
         }
