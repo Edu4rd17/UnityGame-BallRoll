@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 299257331371183802}
   - component: {fileID: 288400235337028764}
   - component: {fileID: 311456685030213917}
-  - component: {fileID: 3372194039894504342}
   m_Layer: 0
   m_Name: StarPoints
   m_TagString: StarPoints
@@ -93,15 +92,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5122995, y: 0.48738986, z: 0.109224334}
   m_Center: {x: 0, y: 0.000000007450581, z: 0.0000000018626451}
---- !u!114 &3372194039894504342
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 312051657993315872}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f503c98c42f9ce4091dab46df957855, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

@@ -38,12 +38,13 @@ public class SphereController : MonoBehaviour
         SphereControll();
 
         GempowerUpIndicator.transform.position = transform.position + new Vector3(0, -0.5f, 0);
-
+        //if the sphere goes over the -10 on the y it will dissapear
         if (transform.position.y < -10)
         {
             gameObject.SetActive(false);
             gameManager.GameOver();
         }
+        //calling the methods by reference
         PickPowerUp();
         PlayerHealth();
     }
@@ -96,13 +97,17 @@ public class SphereController : MonoBehaviour
 
             if (collision.gameObject.CompareTag("Enemy") && hasGemPowerUp)
             {
-                Debug.Log("Collision Detected");
+                //add impulse when having the powerup
+                Rigidbody enemyRigidbody = collision.gameObject.GetComponent<Rigidbody>();
+                Vector3 awayFromPlayer = collision.gameObject.transform.position - transform.position;
+                enemyRigidbody.AddForce(awayFromPlayer * 10, ForceMode.Impulse);
             }
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        //only if the game is still active do the rest
         if (gameManager.isGameActive)
         {
             if (other.CompareTag("GemPowerUp"))

@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     private int score;
     public TextMeshProUGUI gameOverText;
     public TextMeshProUGUI winText;
+    public TextMeshProUGUI pickTrophy;
     public GameObject trophyPrefab;
     public Button restartButton;
     public bool isGameActive;
@@ -18,8 +19,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         score = 0;
-        UpdateScore(0);
         isGameActive = true;
+        UpdateScore(0);
     }
 
     // Update is called once per frame
@@ -43,6 +44,7 @@ public class GameManager : MonoBehaviour
         if (score >= 100)
         {
             winText.gameObject.SetActive(true);
+            pickTrophy.gameObject.SetActive(true);
             Instantiate(trophyPrefab, GenerateTrophyRandom(), trophyPrefab.transform.rotation);
         }
     }

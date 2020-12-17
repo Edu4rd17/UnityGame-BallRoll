@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 6785946263013062432}
   - component: {fileID: 6775854386956289022}
   - component: {fileID: 1623815007709186015}
-  - component: {fileID: 6313321542648045832}
   m_Layer: 0
   m_Name: BadPoints
   m_TagString: BadPoints
@@ -93,15 +92,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.42912176, y: 0.5520757, z: 0.46483076}
   m_Center: {x: 0, y: -0.02673658, z: -0.023982435}
---- !u!114 &6313321542648045832
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6799692712891383782}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f503c98c42f9ce4091dab46df957855, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

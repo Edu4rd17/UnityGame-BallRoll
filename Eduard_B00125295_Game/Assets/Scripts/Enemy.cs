@@ -20,8 +20,7 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         EnemyPlayerFollow();
-
-        if (transform.position.y < -10)
+        if(transform.position.y < -10)
         {
             Destroy(gameObject);
         }

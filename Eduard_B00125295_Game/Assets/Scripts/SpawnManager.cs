@@ -10,6 +10,7 @@ public class SpawnManager : MonoBehaviour
     public GameObject[] obstaclePrefabs;
     public float obstacleCheckRadius = 6.0f;
     public int maxSpawnAttemptsPerObstacle = 10;
+    public int enemiesCount;
     private GameManager gameManager;
     private float spawnRangeX = 45.0f;
     private float spawnRangeZ = 45.0f;
@@ -18,7 +19,7 @@ public class SpawnManager : MonoBehaviour
     {
 
         ObstacleSpawnRandom();
-        Instantiate(enemyPrefab, GenerateEnemySpawnPosition(), enemyPrefab.transform.rotation);
+        SpawnEnemyWave(1);
         InvokeRepeating("SpawnRandomPowerUps", 2, 15);
         InvokeRepeating("SpawnRandomPickUpPoints", 2, 1.5f);
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
@@ -27,7 +28,18 @@ public class SpawnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        enemiesCount = FindObjectsOfType<Enemy>().Length;
+        if (enemiesCount == 0)
+        {
+            SpawnEnemyWave(1);
+        }
+    }
+    void SpawnEnemyWave(int enemiesToSpawn)
+    {
+        for (int i = 0; i < enemiesToSpawn; i++)
+        {
+            Instantiate(enemyPrefab, GenerateEnemySpawnPosition(), enemyPrefab.transform.rotation);
+        }
     }
     void SpawnRandomPowerUps()
     {
@@ -47,7 +59,7 @@ public class SpawnManager : MonoBehaviour
             Instantiate(pickPointsPrefabs[pickUpPointsIndex], spawnPosition, pickPointsPrefabs[pickUpPointsIndex].transform.rotation);
         }
     }
-    private Vector3 GenerateEnemySpawnPosition()
+    public Vector3 GenerateEnemySpawnPosition()
     {
         float enemySpawnPosX = Random.Range(-spawnRangeX, spawnRangeX);
         float enemySpawnPosZ = Random.Range(-spawnRangeZ, spawnRangeZ);

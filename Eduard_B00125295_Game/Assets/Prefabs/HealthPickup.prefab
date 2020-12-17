@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3175494700629150727}
   - component: {fileID: 3186036627581975817}
   - component: {fileID: 3199433981010331017}
-  - component: {fileID: -4156304349204740914}
   m_Layer: 0
   m_Name: HealthPickup
   m_TagString: Health
@@ -93,15 +92,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3181021, y: 0.54847854, z: 0.27911526}
   m_Center: {x: 0, y: 0.01116395, z: 0.0018153688}
---- !u!114 &-4156304349204740914
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3197730311779083677}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f503c98c42f9ce4091dab46df957855, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
