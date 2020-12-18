@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI pickTrophy;
     public GameObject trophyPrefab;
     public Button restartButton;
+    public Button exitButton;
     public bool isGameActive;
     // Start is called before the first frame update
     void Start()
@@ -36,6 +37,7 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         restartButton.gameObject.SetActive(true);
+        exitButton.gameObject.SetActive(true);
         gameOverText.gameObject.SetActive(true);
         isGameActive = false;
     }
@@ -60,5 +62,10 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    //method for the exit button
+    public void GoToMenuScene()
+    {
+        SceneManager.LoadScene("Eduard_GameMainScene");
     }
 }

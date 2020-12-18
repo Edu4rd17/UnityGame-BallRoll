@@ -72,6 +72,7 @@ public class SpawnManager : MonoBehaviour
 
     void ObstacleSpawnRandom()
     {
+        //spawn the objects 30 times and then stop
         for (int i = 0; i <= 30; i++)
         {
             int obstacleIndex = Random.Range(0, obstaclePrefabs.Length);
