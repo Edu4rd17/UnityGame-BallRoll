@@ -19,7 +19,7 @@ public class SpawnManager : MonoBehaviour
     {
 
         ObstacleSpawnRandom();
-        SpawnEnemyWave(1);
+        SpawnEnemyWave(2);
         InvokeRepeating("SpawnRandomPowerUps", 2, 15);
         InvokeRepeating("SpawnRandomPickUpPoints", 2, 1.5f);
         //making reference to the game manager objects
@@ -32,7 +32,7 @@ public class SpawnManager : MonoBehaviour
         enemiesCount = FindObjectsOfType<Enemy>().Length;
         if (enemiesCount == 0)
         {
-            SpawnEnemyWave(1);
+            SpawnEnemyWave(2);
         }
     }
     void SpawnEnemyWave(int enemiesToSpawn)

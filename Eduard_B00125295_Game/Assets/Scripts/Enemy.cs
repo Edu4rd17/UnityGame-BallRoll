@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour
     {
         EnemyPlayerFollow();
         //if the position of the enemy game object is smaller than -10 destroy the enemy game object
-        if(transform.position.y < -10)
+        if (transform.position.y < -10)
         {
             Destroy(gameObject);
         }

@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
     }
     public void WinGame()
     {
-        if (score >= 100)
+        if (score >= 125)
         {
             winText.gameObject.SetActive(true);
             pickTrophy.gameObject.SetActive(true);
